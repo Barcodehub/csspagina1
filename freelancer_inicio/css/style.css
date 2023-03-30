@@ -1,0 +1,258 @@
+:root {
+    --blanco: #ffffff;
+    --primario: #d66ff5;
+    --secundario: #8A0829;
+    --gris: #757575;
+    --oscuro: #212121;
+}
+html {
+    box-sizing: border-box;
+    min-height: 100%;
+   /*  scroll-snap-type: y mandatory; */ /* para el efecto de scroll */
+}
+*, *:before, *:after { /* para no ampliar pixeles cuando se hace padding */
+    box-sizing: inherit;
+}
+/* display: block; letra hacia de lado - display: inline; letra hacia abajo */
+p {
+    line-height: 2;
+}
+body {
+    font-family: 'Krub', sans-serif; /* fuente de google fonts */
+    background-image: linear-gradient(to top, #dfe9f3 0%, white 100%); /* degradado */
+    min-height: 100%;
+}
+
+h1 {
+    font-size: 1.4rem;
+}
+h1 span {   /* aplica a todos los span del h1 */
+    font-size: 1.4rem;
+}
+h1, h2, h3 {
+    text-align: center;
+}
+h2 {
+    font-size: 2.4rem;
+}
+h3 {
+    color: var(--secundario);
+    font-weight: 400;
+    font-size: 1.6rem;
+}
+
+.contenedor {
+    margin: 0 auto; /* añade separacion: arriba derecha abajo izquierda; rem*/
+    max-width: 1200px;
+}
+
+
+.nav-bg {   /* barra de navegacion */                            
+    background-color: var(--secundario);    /* color de fondo */
+}
+
+.navegacion {
+    /* scroll-snap-align: center;
+    scroll-snap-stop: always;  */
+    display: flex;
+    flex-direction: column; /* alinear de arriba hacia abajo */
+    align-items: center; /* cen trarlo */
+}
+@media (min-width:768px) { /* Responsivo if 768+... */
+    .navegacion {
+        flex-direction: row;
+        justify-content: space-between; /* space-: distribuir horizontalmente */
+    }
+}
+
+.navegacion a{
+    padding: 1rem 2rem; /* añade separacion: desde afuera hacia dentro */
+    color: var(--blanco);
+    text-decoration: none; /* none: eliminar subrayado */
+    font-size: 1.4rem; /* tamaño letra */
+    font-weight: 700;  /* grosor, ancho de la letra, bold:700*/
+}
+
+.navegacion a:hover { /*Hover:cuando coloco la flecha sobre el, cambie color */
+    background-color: var(--primario);
+    color: var(--oscuro);
+}
+
+.hero{
+    height: 450px;
+    background-image: url(/img/nier.jpg); /* imagen de fondo */
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.contenido-hero {
+    /* cuando se quiere posicionar en un lugar especifico, absolute en hijo,
+    y en padre relative top, right, left, bottom:0*/
+
+   /*  background-color: rgb(0 0 0 / 70%); /** Otra opción **/ 
+    background-color: rgba(0, 0, 0, .7); /* sombreado sobre la imagen */
+    position: absolute;
+    width: 100%;  /* se expande a lo largo del espacio hero */
+    height: 100%;  /*  x2 */
+    display: flex;
+    flex-direction: column;
+   align-items: center;
+   justify-content: center; /* centrar verticalmente */
+}
+
+.contenido-hero h2, 
+.contenido-hero p {
+    color: var(--blanco);
+}
+
+
+
+.sombra {
+    padding: 2rem;
+    margin-bottom: 3rem;
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 10px;
+    -webkit-box-shadow: 0px 11px 15px -9px rgba(0,0,0,0.63);
+    -moz-box-shadow: 0px 11px 15px -9px rgba(0,0,0,0.63);
+    box-shadow: 0px 11px 15px -9px rgba(0,0,0,0.63);
+}
+.boton {
+    background-color: var(--secundario);
+    color: var(--blanco);
+    margin-top: .5rem;
+    padding: .5rem 3rem;
+    border-radius: 5px;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    border:none;
+}
+.boton:hover{
+    cursor: pointer;/*  manita flechamouse */
+}
+/* .servicios {
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+} */
+@media (min-width:768px) {
+    .servicios {
+        display: grid; /* grid se usa para todo, flex se usa para barras de nav */
+        grid-template-columns: 33.3% 33.3% 33.3%; /* dividir como displayflex */
+        column-gap: 1rem;
+    }
+}
+.servicio {
+    text-align:center;
+}
+.servicio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.iconos {
+    display: flex;
+    height: 150px;
+    width: 150px;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: var(--primario);
+    border-radius: 50%;   /* fondo circular */
+}
+.iconos i {
+    font-size: 2rem;
+    color: var(--oscuro);
+}
+
+
+.formulario {
+    background-color: var(--gris);
+    padding: 2rem;
+    border-radius: 10px;
+    /* scroll-snap-align: center;
+    scroll-snap-stop: always; */
+}
+.formulario legend {
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--primario);
+    margin-bottom: 2rem;
+    display: block;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+@media (min-width:768px) {
+    .formulario {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+}
+.contenedor-campos {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.campo {
+    margin-bottom: 1rem;
+    width: 100%;
+}
+@media (min-width:480px) {
+    .campo {
+        display: flex;
+        align-items: center;
+    }
+}
+@media (min-width: 768px) {
+    .campo{
+        flex: 0 0 calc(50% - .5rem)
+    }
+}
+.campo label {
+    color: var(--blanco);
+    font-weight: 700;
+    margin-bottom: .5rem;
+    display: block;
+}
+@media (min-width:480px) {
+    .campo label {
+        flex: 0 0 90px;
+    }
+}
+.campo input[type="text"],
+.campo input[type="tel"],
+.campo input[type="mail"],
+.campo textarea {
+    width: 100%;
+    padding: .5rem;
+    border: none;
+    border-radius: .5rem;
+}
+@media (min-width: 768px) {
+    :is(.campo) :is( 
+        input[type="text"], 
+        input[type="text"],  
+        input[type="tel"],  
+        input[type="mail"] , 
+        textarea ) {
+        flex: 1;
+    }
+}
+
+.w-100{
+    flex: 0 0 100%;
+}
+.campo textarea {
+    height: 4rem;
+}
+
+.enviar {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.footer {
+    text-align: center;
+}
